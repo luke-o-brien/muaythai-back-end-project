@@ -55,6 +55,27 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.put('/:fighterId', async (req, res) => {
+    try {
+      const updatedFighter = await Fighter.findByIdAndUpdate(req.params.fighterId, req.body, {
+        new: true,
+      });
+      if (!updatedFighter) {
+        res.status(404);
+        throw new Error('Fighter not found.');
+      }
+      res.status(200).json(updatedFighter);
+    } catch (err) {
+      if (res.statusCode === 404) {
+        res.json({ err: err.message });
+      } else {
+        res.status(500).json({ err: err.message });
+      }
+    }
+  });
+
+
+
 
 module.exports = router;
 
