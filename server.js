@@ -7,6 +7,9 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const fighterRouter = require('./controllers/fighters.js')
+const testJwtRouter = require('./controllers/test-jwt.js')
+const authRouter = require('./controllers/auth.js')
+
 
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -21,8 +24,8 @@ app.use(express.json());
 app.use(logger('dev'));
 
 app.use('/fighters', fighterRouter)
-
-
+app.use('/auth', authRouter)
+app.use('/test-jwt', testJwtRouter)
 
 app.listen(3000, () => {
   console.log('The express app is ready!');

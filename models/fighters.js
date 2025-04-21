@@ -19,8 +19,11 @@ const fighterSchema = mongoose.Schema({
         type: String,
         required: true,
     }
+
 })
+
 
 const Fighter = mongoose.model('Fighter', fighterSchema)
 
 module.exports = Fighter;
+
