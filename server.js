@@ -27,7 +27,7 @@ app.use('/fighters', fighterRouter)
 app.use('/auth', authRouter)
 app.use('/test-jwt', testJwtRouter)
 
-PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log('The express app is ready!');
 });
