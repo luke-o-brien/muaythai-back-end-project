@@ -19,7 +19,7 @@ mongoose.connection.on('connected', () => {
 });
 
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.FRONT_END_URL }));
 app.use(express.json());
 app.use(logger('dev'));
 
