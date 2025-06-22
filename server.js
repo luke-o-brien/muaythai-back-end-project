@@ -19,7 +19,7 @@ mongoose.connection.on('connected', () => {
 });
 
 
-app.use(cors({ origin: process.env.FRONT_END_URL }));
+app.use(cors({ origin: process.env.FRONT_END_URL, credentials:true }));
 app.use(express.json());
 app.use(logger('dev'));
 
@@ -27,6 +27,7 @@ app.use('/fighters', fighterRouter)
 app.use('/auth', authRouter)
 app.use('/test-jwt', testJwtRouter)
 
+PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log('The express app is ready!');
 });
