@@ -27,6 +27,6 @@ app.use('/fighters', fighterRouter)
 app.use('/auth', authRouter)
 app.use('/test-jwt', testJwtRouter)
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('The express app is ready!');
 });
