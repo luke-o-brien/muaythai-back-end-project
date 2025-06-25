@@ -26,14 +26,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(
-  cors({
-    origin: process.env.FRONT_END_URL,
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: process.env.FRONT_END_URL,
+  credentials: true,
+};
 
-app.options("*", cors());
+app.use(cors(corsOptions));
 
 
 app.use(express.json());
